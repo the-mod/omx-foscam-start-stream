@@ -1,0 +1,32 @@
+#!/bin/bash
+
+### BEGIN INIT INFO
+# Provides:          omx.service
+# Required-Start:    $all
+# Required-Stop:
+# Default-Start:     2 3 4 5
+# Default-Stop:      0 1 6
+# Short-Description: starts omx player at boot
+# Description:       starts omx player at boot
+### END INIT INFO
+ 
+case "$1" in
+    start)
+        echo "starting omx..."
+        /home/pi/omx
+        ;;
+    stop)
+        echo "stopping omx..."
+        killall omx
+        ;;
+    restart)
+        echo "stopping omx..."
+        killall omx
+        ;;
+    *)
+        echo "Usage: /etc/init.d/omx.service {start|stop}"
+        exit 1
+        ;;
+esac
+ 
+exit 0
