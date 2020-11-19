@@ -1,0 +1,11 @@
+[Unit]
+Description=Checks if a Button was pressed
+After=network-online.target
+
+[Service]
+Type=simple
+ExecStart=python /home/pi/push_button.py
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

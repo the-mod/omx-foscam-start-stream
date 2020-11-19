@@ -70,15 +70,37 @@ echo "Start omx player on System Startup? (y|n):"
 read SHOULD_AUTOSTART
 
 if [ "$SHOULD_AUTOSTART" = "y" ]; then
-   echo "copying omx.service to /etc/init.d/omx.service"
-   cp omx.service /etc/init.d/omx.service
-   chmod 775 /etc/init.d/omx.service
-   update-rc.d /etc/init.d/omx.service defaults
+   echo "copying omx-init to /etc/init.d/omx-init"
+   cp omx-init /etc/init.d/omx-init
+   chmod 775 /etc/init.d/omx-init
+   update-rc.d /etc/init.d/omx-init defaults
 else
-   echo "skipping rotate display"
+   echo "skipping autostart"
 fi
 
 sleep 2;
+####################################
+#
+#
+# Adding Watcher Script
+#
+#
+####################################
+echo "Watch omx process via Crontab? (y|n):"
+read SHOULD_WATCH
+
+if [ "$SHOULD_WATCH" = "y" ]; then
+   chmod 775 watchdog.sh
+   crontab -l > mycron
+   cat watchdog.crontab >> mycron
+   crontab mycron
+   rm mycron
+   echo "added content of 'watchdog-crontab.sh' to '/etc/crontab'"
+   sleep 2;
+else
+   echo "skipping watching"
+fi
+
 ####################################
 #
 #
@@ -97,4 +119,5 @@ else
    echo "staying up and running (changes may not apply)"
 fi
 
+sleep 2;
 echo "Done :-)"

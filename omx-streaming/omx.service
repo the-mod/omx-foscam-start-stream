@@ -1,0 +1,11 @@
+[Unit]
+Description=starts omx player script
+After=network-online.target
+
+[Service]
+Type=simple
+ExecStart=/home/pi/omx.sh
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

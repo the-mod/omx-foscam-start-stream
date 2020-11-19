@@ -13,7 +13,7 @@
 case "$1" in
     start)
         echo "starting omx..."
-        /home/pi/omx
+        /home/pi/omx.sh
         ;;
     stop)
         echo "stopping omx..."
@@ -22,6 +22,8 @@ case "$1" in
     restart)
         echo "stopping omx..."
         killall omx
+        echo "starting omx..."
+        /home/pi/omx.sh
         ;;
     *)
         echo "Usage: /etc/init.d/omx.service {start|stop}"
