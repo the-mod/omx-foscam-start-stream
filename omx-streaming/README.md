@@ -17,5 +17,9 @@ For further details how to use omx player see [omx usage](https://elinux.org/Omx
 
 ## Set Display Blank Timeout
 It toke a while to find the right place, to set display settings on start up.
-Add this to ~/.config/lxsession/autostart
+Add this to `~/.config/lxsession/LXDE-pi/autostart`
 `@lxterminal -e /home/pi/omx/display.sh`
+
+### What to do if  '~/.config/lxsession' doesn't exists
+Simply copy it from `/etc/xdg/lxsession`
+`cp -r /etc/xdg/lxsession ~/.config/lxsession`
