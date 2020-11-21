@@ -13,3 +13,9 @@ Just replace Placeholders for username, password, ip and port in the `omx.sh` fi
 Then add it to the init system of your choice.
 60 seconds timeout is to give time for network initialization.
 For further details how to use omx player see [omx usage](https://elinux.org/Omxplayer#Usage)
+
+
+## Set Display Blank Timeout
+It toke a while to find the right place, to set display settings on start up.
+Add this to ~/.config/lxsession/autostart
+`@lxterminal -e /home/pi/omx/display.sh`

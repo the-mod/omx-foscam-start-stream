@@ -1,6 +1,7 @@
 import RPi.GPIO as GPIO # Import Raspberry Pi GPIO library
 import time
 import os
+from subprocess import Popen
 #based on https://raspberrypihq.com/use-a-push-button-with-raspberry-pi-gpio/
 
 def do_nothing():
@@ -12,8 +13,7 @@ def kill_app():
     
 def start_app():
     print("starting app")
-    #os.system("ls -lsa")
-    #maybe use subprocess.Popen() to return quickly to handler cause of debounce
+    Popen(['/bin/bash', '/home/pi/omx/omx-warmstart.sh'])
     print("start!")
 
 def button_callback(channel):

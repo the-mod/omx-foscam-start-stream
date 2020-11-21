@@ -6,6 +6,9 @@ After=network-online.target
 Type=simple
 ExecStart=python /home/pi/push_button.py
 Restart=always
+StandardOutput=inherit
+StandardError=inherit
+StartLimitBurst=0
 
 [Install]
 WantedBy=multi-user.target
