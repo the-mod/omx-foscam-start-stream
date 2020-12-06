@@ -9,6 +9,7 @@ Project was tested with raspian buster.
 
 ## Usage
 Just replace Placeholders for username, password, ip and port in the `omx.sh` file.
+May you have to escape special charaters like ! to %21 or & to %26
 
 Then add it to the init system of your choice.
 60 seconds timeout is to give time for network initialization.
