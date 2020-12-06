@@ -9,7 +9,7 @@ def do_nothing():
 
 def kill_app():
     print("killing app")
-    os.system("ps aux | grep -ie chromium-brwoser | awk '{print $2}' | xargs kill -9")
+    os.system("ps aux | grep -ie /usr/bin/omxplayer.bin | awk '{print $2}' | xargs kill -9")
     
 def start_app():
     print("starting app")
@@ -17,7 +17,7 @@ def start_app():
     print("start!")
 
 def button_callback(channel):
-    print("Button was pushed!")
+    #print("Button was pushed!")
     kill_app()
     start_app()
     
