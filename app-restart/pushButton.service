@@ -4,7 +4,7 @@ After=network-online.target
 
 [Service]
 Type=simple
-ExecStart=python /home/pi/push_button.py
+ExecStart=sudo python /home/pi/push_button.py
 Restart=always
 StandardOutput=inherit
 StandardError=inherit
